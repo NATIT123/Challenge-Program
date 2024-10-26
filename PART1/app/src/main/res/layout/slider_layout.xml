@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <com.caverock.androidsvg.SVGImageView
+        android:layout_gravity="center"
+        android:id="@+id/imageSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:svg="logo.svg"
+        />
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:gravity="center"
+        android:text="@string/heading_one"
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/subtitle_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="@string/desc_one"
+        android:textStyle="bold" />
+
+
+</LinearLayout>

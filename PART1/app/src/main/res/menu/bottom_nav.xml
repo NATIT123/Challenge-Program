@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment2"
+        android:icon="@drawable/baseline_currency_exchange_24"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/favoriteFragment"
+        android:icon="@drawable/baseline_favorite_24"
+        android:title="@string/favorite" />
+    <item
+        android:id="@+id/newsFragment"
+        android:icon="@drawable/baseline_newspaper_24"
+        android:title="@string/news" />
+
+    <item
+        android:id="@+id/chartFragment"
+        android:icon="@drawable/baseline_stacked_bar_chart_24"
+        android:title="@string/chart" />
+
+    <item
+        android:id="@+id/searchFragment"
+        android:icon="@drawable/baseline_manage_search_24"
+        android:title="@string/search" />
+
+
+</menu>
