@@ -6,17 +6,16 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.currencyconverter.Models.FavoriteCurrency
+import com.example.currencyconverter.Models.SaveCurrency
 
 @Dao
 interface CurrencyDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun upsert(currency: FavoriteCurrency): Long
+    suspend fun upsert(currency: SaveCurrency): Long
 
     @Query("SELECT * FROM currency")
-    fun getListArticle(): LiveData<List<FavoriteCurrency>>
+    fun getListCurrency(): LiveData<List<SaveCurrency>>
 
-    @Delete
-    suspend fun deleteTvShow(currency: FavoriteCurrency)
+
 }

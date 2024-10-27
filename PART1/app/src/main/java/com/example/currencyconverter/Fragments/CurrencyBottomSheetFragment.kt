@@ -15,7 +15,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class CurrencyBottomSheetFragment(
     private val mListItems: MutableList<CurrencyItem>,
-    val iClickListener: IClickListener
+    private val iClickListener: IClickListener
 ) : BottomSheetDialogFragment(),IClickListener {
 
     private lateinit var currencyAdapter: CurrencyAdapter
@@ -23,6 +23,8 @@ class CurrencyBottomSheetFragment(
         val bottomSheetDialog =super.onCreateDialog(savedInstanceState) as BottomSheetDialog
         val view = LayoutInflater.from(context).inflate(R.layout.layout_bottom_sheet,null)
         bottomSheetDialog.setContentView(view)
+
+
 
         val rcvData=view.findViewById<RecyclerView>(R.id.rcv_data)
         val linearLayoutManager = LinearLayoutManager(context)
@@ -39,10 +41,6 @@ class CurrencyBottomSheetFragment(
 
     override fun onClickItem(position: Int) {
         iClickListener.onClickItem(position)
-    }
-
-    override fun deleteItem(position: Int) {
-        TODO("Not yet implemented")
     }
 
 }

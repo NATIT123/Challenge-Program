@@ -20,14 +20,4 @@
         android:name="com.example.currencyconverter.Fragments.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" />
-    <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.example.currencyconverter.Fragments.SearchFragment"
-        android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
-    <fragment
-        android:id="@+id/favoriteFragment"
-        android:name="com.example.currencyconverter.Fragments.FavoriteFragment"
-        android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
 </navigation>

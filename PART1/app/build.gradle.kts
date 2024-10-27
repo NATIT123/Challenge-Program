@@ -100,4 +100,8 @@ dependencies {
     //AndroidSVG
     implementation ("com.caverock:androidsvg-aar:1.4")
 
+    
+    //Chart
+    implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
 }
