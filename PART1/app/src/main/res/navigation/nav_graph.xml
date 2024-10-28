@@ -9,17 +9,17 @@
 
     <fragment
         android:id="@+id/homeFragment2"
-        android:name="com.example.currencyconverter.Fragments.HomeFragment"
+        android:name="com.example.currencyconverter.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/chartFragment"
-        android:name="com.example.currencyconverter.Fragments.ChartFragment"
+        android:name="com.example.currencyconverter.fragments.ChartFragment"
         android:label="fragment_chart"
         tools:layout="@layout/fragment_chart" />
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.example.currencyconverter.Fragments.NewsFragment"
+        android:name="com.example.currencyconverter.fragments.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news">
         <action

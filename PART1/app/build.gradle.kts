@@ -52,6 +52,8 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
 
 
+
+
     // Architectural Components
     val lifecycle_version = "2.8.6"
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6")

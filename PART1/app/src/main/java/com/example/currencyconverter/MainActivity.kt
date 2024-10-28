@@ -1,21 +1,14 @@
 package com.example.currencyconverter
 
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.window.OnBackInvokedDispatcher
-import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AlertDialog
-import androidx.core.view.GravityCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import com.example.currencyconverter.Utils.PreferenceManager
-import com.example.currencyconverter.ViewModels.CurrencyViewModel
-import com.example.currencyconverter.ViewModels.CurrencyViewModelFactory
+import com.example.currencyconverter.utils.PreferenceManager
+import com.example.currencyconverter.viewModels.CurrencyViewModel
+import com.example.currencyconverter.viewModels.CurrencyViewModelFactory
 import com.example.currencyconverter.databinding.ActivityMainBinding
 import com.example.tvshowsapplication.Database.CurrencyDatabase
 
