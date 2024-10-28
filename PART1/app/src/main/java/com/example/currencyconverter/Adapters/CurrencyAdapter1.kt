@@ -3,15 +3,15 @@ package com.example.currencyconverter.Adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.currencyconverter.Interface.IClickListenerCode
+import com.example.currencyconverter.Interface.IClickListenerCode1
 import com.example.currencyconverter.Models.CurrencyItem
 import com.example.currencyconverter.databinding.CurrencyItemBinding
 
-class CurrencyAdapter(
+class CurrencyAdapter1(
     private val listCurrencyItem: MutableList<CurrencyItem>,
-    private val mOnClickItemListener: IClickListenerCode
+    private val mOnClickItemListener: IClickListenerCode1
 ) :
-    RecyclerView.Adapter<CurrencyAdapter.CurrencyViewHolder>() {
+    RecyclerView.Adapter<CurrencyAdapter1.CurrencyViewHolder>() {
 
 
     inner class CurrencyViewHolder(val currencyItemBinding: CurrencyItemBinding) :
@@ -33,7 +33,7 @@ class CurrencyAdapter(
         holder.currencyItemBinding.apply {
             tvItem.text = currencyItem.name
             holder.itemView.setOnClickListener {
-                mOnClickItemListener.onClickItem(position)
+                mOnClickItemListener.onClickItem1(position)
             }
         }
     }

@@ -5,11 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.currencyconverter.Interface.IClickListener
 import com.example.currencyconverter.Interface.IClickListenerNumber
-import com.example.currencyconverter.Models.CurrencyItem
 import com.example.currencyconverter.R
-import com.example.currencyconverter.databinding.CurrencyItemBinding
 import com.example.currencyconverter.databinding.NumberItemBinding
 
 class NumberAdapter(

@@ -1,6 +1,6 @@
 package com.example.currencyconverter.Interface
 
-interface IClickListener {
+interface IClickListenerCode {
     fun onClickItem(position: Int)
 
 }

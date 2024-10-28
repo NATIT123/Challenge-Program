@@ -38,23 +38,6 @@ class MainActivity : AppCompatActivity() {
         preferenceManager = PreferenceManager(applicationContext)
         preferenceManager.instance()
 
-        if (Build.VERSION.SDK_INT >= 33) {
-            onBackInvokedDispatcher.registerOnBackInvokedCallback(
-                OnBackInvokedDispatcher.PRIORITY_DEFAULT
-            ) {
-
-                exitOnBackPressed()
-            }
-        } else {
-            onBackPressedDispatcher.addCallback(
-                this,
-                object : OnBackPressedCallback(true) {
-                    override fun handleOnBackPressed() {
-                        Log.i("TAG", "handleOnBackPressed: Exit")
-                        exitOnBackPressed()
-                    }
-                })
-        }
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
@@ -69,25 +52,5 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun exitOnBackPressed() {
-        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            binding.drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            val dialog = AlertDialog.Builder(this)
-            dialog.apply {
-                setTitle("Confirm Exit")
-                setMessage("Are you sure you want to exist?")
-                setCancelable(false)
-                setPositiveButton("Yes") { _, _ ->
-                    finish()
-                }
-                setNegativeButton("No") { dialogInterface, _ ->
-                    dialogInterface.dismiss()
-                }
-                create()
-                show()
-            }
 
-        }
-    }
 }

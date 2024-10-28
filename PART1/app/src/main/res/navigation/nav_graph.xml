@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navgraph"
+    android:label="fragment_article"
     app:startDestination="@id/homeFragment2">
+
 
     <fragment
         android:id="@+id/homeFragment2"
@@ -19,5 +21,18 @@
         android:id="@+id/newsFragment"
         android:name="com.example.currencyconverter.Fragments.NewsFragment"
         android:label="fragment_news"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news">
+        <action
+            android:id="@+id/action_newsFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.example.currencyconverter.fragments.ArticleFragment"
+        android:label="ArticleFragment" >
+        <argument
+            android:name="article"
+            app:argType="com.example.newsapplication.Models.Article" />
+    </fragment>
+
 </navigation>
