@@ -1,4 +1,4 @@
-package com.example.tvshowsapplication.Database
+package com.example.currencyconverter.Database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

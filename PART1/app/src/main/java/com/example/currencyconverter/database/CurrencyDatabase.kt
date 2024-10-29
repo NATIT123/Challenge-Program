@@ -1,4 +1,4 @@
-package com.example.tvshowsapplication.Database
+package com.example.currencyconverter.Database
 
 import android.content.Context
 import androidx.room.Database

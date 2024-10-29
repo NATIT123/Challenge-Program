@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.currencyconverter.databinding.ItemArticlePreviewBinding
-import com.example.newsapplication.Models.Article
+import com.example.currencyconverter.models.Article
 class NewsAdapter(private val mOnClickItem: onClickItem) :
     RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 

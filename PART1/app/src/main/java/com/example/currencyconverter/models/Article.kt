@@ -1,7 +1,5 @@
-package com.example.newsapplication.Models
+package com.example.currencyconverter.models
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import java.io.Serializable
 
 

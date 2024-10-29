@@ -34,10 +34,12 @@ class ArticleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         currencyViewModel = (activity as MainActivity).viewModel
         val article = args.article
+        binding.isLoading = true
         binding.webView.apply {
             webViewClient = WebViewClient()
             loadUrl(article.url!!)
         }
+        binding.isLoading = false
 
 
     }

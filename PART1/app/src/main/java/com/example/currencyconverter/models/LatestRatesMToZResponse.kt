@@ -5,5 +5,6 @@ data class LatestRatesMToZResponse(
     val date: String,
     val rates: RatesMToZ,
     val success: Boolean,
-    val timestamp: Int
+    val timestamp: Int,
+    val error: ErrorHandle
 )

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import android.window.OnBackInvokedDispatcher
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
@@ -25,6 +26,7 @@ import com.example.currencyconverter.viewModels.CurrencyViewModel
 import com.example.currencyconverter.databinding.FragmentHomeBinding
 import com.example.currencyconverter.models.RatesAToL
 import com.example.currencyconverter.models.RatesMToZ
+import com.example.currencyconverter.models.SaveCurrency
 import java.text.DecimalFormat
 import kotlin.reflect.full.memberProperties
 
@@ -39,7 +41,8 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
     private lateinit var numberAdapter: NumberAdapter
     private val listNumber = mutableListOf<String>()
     private val symbolsMap = mutableMapOf<String, String>()
-    private var listCurrencyTemp = mutableListOf<CurrencyItem>()
+    private var listCurrencyTemp = listOf<CurrencyItem>()
+    private var listCurrencyTemp1 = listOf<CurrencyItem>()
     private lateinit var ratesAToL: RatesAToL
     private lateinit var ratesMToZ: RatesMToZ
     private val ratesMap = mutableMapOf<String, Double>()
@@ -93,6 +96,7 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
 
         currencyViewModel.getSymbolsApi()
         observerSymbols()
+        observerErrorSymbols()
 
 
         currencyViewModel.getLatestRatesAToL()
@@ -101,6 +105,10 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
 
         currencyViewModel.getLatestRatesMToZ()
         observerLatestRatesMToZ()
+
+        observerErrorRates()
+
+        observerCurrencySaved()
 
 
 
@@ -126,7 +134,7 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
 
         for (name in listCode) {
 
-            listCurrency.add(CurrencyItem(name = name, 0))
+            listCurrency.add(CurrencyItem(name = name))
         }
         binding.tvCode.text = listCurrency[0].name
         binding.tvBase.text = symbolsMap[listCurrency[0].name] ?: "Empty"
@@ -135,24 +143,27 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
         binding.tvBase1.text = symbolsMap[listCurrency[1].name] ?: "Empty"
     }
 
+
     private fun clickOpenBottomSheetFragment() {
         listCurrencyTemp = mutableListOf()
         listCurrencyTemp = listCurrency
-        val tvCode = binding.tvCode1.text.toString()
         currencyBottomSheetFragment =
-            CurrencyBottomSheetFragment(listCurrencyTemp.filter { it.name != tvCode } as MutableList<CurrencyItem>,
-                this)
+            CurrencyBottomSheetFragment(
+                listCurrencyTemp,
+                this
+            )
         currencyBottomSheetFragment.show(parentFragmentManager, currencyBottomSheetFragment.tag)
 
     }
 
     private fun clickOpenBottomSheetFragment1() {
-        listCurrencyTemp = mutableListOf()
-        listCurrencyTemp = listCurrency
-        val tvCode = binding.tvCode.text.toString()
+        listCurrencyTemp1 = mutableListOf()
+        listCurrencyTemp1 = listCurrency
         currencyBottomSheetFragment1 =
-            CurrencyBottomSheetFragment1(listCurrencyTemp.filter { it.name != tvCode } as MutableList<CurrencyItem>,
-                this)
+            CurrencyBottomSheetFragment1(
+                listCurrencyTemp1,
+                this
+            )
         currencyBottomSheetFragment1.show(parentFragmentManager, currencyBottomSheetFragment1.tag)
 
     }
@@ -248,6 +259,9 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
 
 
     private fun observerSymbols() {
+        binding.isLoadingSymbol = true
+        binding.isLoadingLayout = true
+        binding.isLoadingLayout1 = true
         currencyViewModel.observerSymbolCurrency().observe(viewLifecycleOwner) { data ->
             symbolsName = data
             for (prop in SymbolsName::class.memberProperties) {
@@ -259,19 +273,51 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
 
     private fun observerLatestRatesAToL() {
         currencyViewModel.observerLatestRatesAToL().observe(viewLifecycleOwner) { data ->
-            ratesAToL = data
-            for (prop in RatesAToL::class.memberProperties) {
-                ratesMap[prop.name] = prop.get(ratesAToL).toString().toDouble()
+            if (data != null) {
+                ratesAToL = data
+                for (prop in RatesAToL::class.memberProperties) {
+                    ratesMap[prop.name] = prop.get(ratesAToL).toString().toDouble()
+                }
             }
         }
     }
 
     private fun observerLatestRatesMToZ() {
         currencyViewModel.observerLatestRatesMToZ().observe(viewLifecycleOwner) { data ->
-            ratesMToZ = data
-            for (prop in RatesMToZ::class.memberProperties) {
-                ratesMap[prop.name] = prop.get(ratesMToZ).toString().toDouble()
+            if (data != null) {
+                ratesMToZ = data
+                for (prop in RatesMToZ::class.memberProperties) {
+                    ratesMap[prop.name] = prop.get(ratesMToZ).toString().toDouble()
+                }
+                binding.isLoadingLayout = false
+                binding.isLoadingLayout1 = false
+                binding.isLoadingSymbol = false
             }
+
+        }
+    }
+
+    private fun observerErrorSymbols() {
+        currencyViewModel.observerErrorHandleSymbol().observe(viewLifecycleOwner) { data ->
+            Log.d("MyApp", data.toString())
+            if (data != null) {
+                binding.isLoadingLayout = true
+                binding.isLoadingLayout1 = true
+                Toast.makeText(requireContext(), data.message, Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+    }
+
+    private fun observerErrorRates() {
+        currencyViewModel.observerErrorHandleRates().observe(viewLifecycleOwner) { data ->
+            if (data != null) {
+                binding.isLoadingLayout = true
+                binding.isLoadingLayout1 = true
+                Toast.makeText(requireContext(), data.message, Toast.LENGTH_SHORT)
+                    .show()
+            }
+
         }
     }
 
@@ -318,6 +364,18 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
 
         covertRates()
 
+    }
+
+    private fun observerCurrencySaved() {
+        currencyViewModel.observerCurrencySaved().observe(viewLifecycleOwner) { data ->
+            Log.d("MyApp", data.toString())
+        }
+    }
+
+    private fun saveCurrency(currency: SaveCurrency) {
+        currency.let {
+            currencyViewModel.addCurrency(currency)
+        }
     }
 
 

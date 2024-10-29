@@ -1,21 +1,23 @@
 package com.example.currencyconverter.viewModels
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.currencyconverter.Database.CurrencyDatabase
+import com.example.currencyconverter.models.Article
+import com.example.currencyconverter.models.ErrorHandle
 import com.example.currencyconverter.models.LatestRatesAToLResponse
 import com.example.currencyconverter.models.LatestRatesMToZResponse
+import com.example.currencyconverter.models.NewsResponse
 import com.example.currencyconverter.models.RatesAToL
 import com.example.currencyconverter.models.RatesMToZ
 import com.example.currencyconverter.models.SaveCurrency
 import com.example.currencyconverter.models.SymbolResponse
 import com.example.currencyconverter.models.SymbolsName
-import com.example.newsapplication.Models.Article
-import com.example.newsapplication.Models.NewsResponse
-import com.example.tvshowsapplication.Database.CurrencyDatabase
-import com.example.tvshowsapplication.Retrofit.ApiCurrencyService
-import com.example.tvshowsapplication.Retrofit.ApiNewsService
+import com.example.currencyconverter.retrofit.ApiCurrencyService
+import com.example.currencyconverter.retrofit.ApiNewsService
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,6 +31,9 @@ class CurrencyViewModel(private val currencyDatabase: CurrencyDatabase) : ViewMo
     private var articlesLiveData = MutableLiveData<List<Article>>()
     private var latestRatesAToLLiveData = MutableLiveData<RatesAToL>()
     private var latestRatesMToZLiveData = MutableLiveData<RatesMToZ>()
+    private var errorHandleSymbol = MutableLiveData<ErrorHandle>()
+    private var errorHandleRates = MutableLiveData<ErrorHandle>()
+    private var errorHandleNews = MutableLiveData<ErrorHandle>()
 
 
     fun getLatestRatesAToL() {
@@ -40,14 +45,21 @@ class CurrencyViewModel(private val currencyDatabase: CurrencyDatabase) : ViewMo
                 ) {
                     if (response.isSuccessful) {
                         val body = response.body()
-                        if (body != null) {
+                        if (body != null && body.success) {
                             latestRatesAToLLiveData.value = body.rates
+                        } else {
+                            if (body != null) {
+                                Log.d("MyApp", body.error.toString())
+                            }
+                            if (body != null) {
+                                errorHandleSymbol.value = body.error
+                            }
                         }
                     }
                 }
 
-                override fun onFailure(p0: Call<LatestRatesAToLResponse>, p1: Throwable) {
-
+                override fun onFailure(p0: Call<LatestRatesAToLResponse>, error: Throwable) {
+                    errorHandleRates.value = ErrorHandle("Error", error.message.toString())
                 }
 
             })
@@ -56,8 +68,8 @@ class CurrencyViewModel(private val currencyDatabase: CurrencyDatabase) : ViewMo
     fun getLatestRatesMToZ() {
         ApiCurrencyService.apiCurrencyService.getLatestRatesMToZCurrency()
             .enqueue(object : Callback<LatestRatesMToZResponse> {
-                override fun onFailure(call: Call<LatestRatesMToZResponse>, p1: Throwable) {
-
+                override fun onFailure(call: Call<LatestRatesMToZResponse>, error: Throwable) {
+                    errorHandleRates.value = ErrorHandle("Error", error.message.toString())
                 }
 
                 override fun onResponse(
@@ -66,8 +78,13 @@ class CurrencyViewModel(private val currencyDatabase: CurrencyDatabase) : ViewMo
                 ) {
                     if (response.isSuccessful) {
                         val body = response.body()
-                        if (body != null) {
+                        if (body != null && body.success) {
                             latestRatesMToZLiveData.value = body.rates
+
+                        } else {
+                            if (body != null) {
+                                errorHandleSymbol.value = body.error
+                            }
                         }
                     }
                 }
@@ -84,14 +101,18 @@ class CurrencyViewModel(private val currencyDatabase: CurrencyDatabase) : ViewMo
                 ) {
                     if (response.isSuccessful) {
                         val body = response.body()
-                        if (body != null) {
+                        if (body != null && body.success) {
                             currencyLiveData.value = body.symbols
+                        } else {
+                            if (body != null) {
+                                errorHandleSymbol.value = body.error
+                            }
                         }
                     }
                 }
 
-                override fun onFailure(p0: Call<SymbolResponse>, p1: Throwable) {
-                    TODO("Not yet implemented")
+                override fun onFailure(call: Call<SymbolResponse>, error: Throwable) {
+                    errorHandleSymbol.value = ErrorHandle("Error", error.message.toString())
                 }
 
             })
@@ -116,14 +137,18 @@ class CurrencyViewModel(private val currencyDatabase: CurrencyDatabase) : ViewMo
                 ) {
                     if (response.isSuccessful) {
                         val body = response.body()
-                        if (body != null) {
+                        if (body != null && body.status == "ok") {
                             articlesLiveData.value = body.articles
+                        } else {
+                            if (body != null && body.status == "error") {
+                                errorHandleNews.value = ErrorHandle("Error", body.message)
+                            }
                         }
                     }
                 }
 
-                override fun onFailure(p0: Call<NewsResponse>, p1: Throwable) {
-
+                override fun onFailure(p0: Call<NewsResponse>, error: Throwable) {
+                    errorHandleNews.value = ErrorHandle("Error", error.message.toString())
                 }
 
             })
@@ -155,6 +180,18 @@ class CurrencyViewModel(private val currencyDatabase: CurrencyDatabase) : ViewMo
 
     fun observerCurrencySaved(): LiveData<List<SaveCurrency>> {
         return currencySaveLiveData
+    }
+
+    fun observerErrorHandleSymbol(): MutableLiveData<ErrorHandle> {
+        return errorHandleSymbol
+    }
+
+    fun observerErrorHandleRates(): MutableLiveData<ErrorHandle> {
+        return errorHandleRates
+    }
+
+    fun observerErrorHandleNews(): MutableLiveData<ErrorHandle> {
+        return errorHandleNews
     }
 
 

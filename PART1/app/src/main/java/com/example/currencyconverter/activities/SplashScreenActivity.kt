@@ -1,4 +1,4 @@
-package com.example.tech_mart_application.activities
+package com.example.currencyconverter.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,8 +7,8 @@ import android.os.Handler
 import android.os.Looper
 import com.example.currencyconverter.MainActivity
 import com.example.currencyconverter.R
+import com.example.currencyconverter.utils.Constants.Companion.IS_STARTED
 import com.example.currencyconverter.utils.PreferenceManager
-import com.example.tvshowsapplication.Utils.Constants.Companion.IS_STARTED
 
 class SplashScreenActivity : AppCompatActivity() {
 

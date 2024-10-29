@@ -1,7 +1,6 @@
 package com.example.currencyconverter.models
 
 import androidx.annotation.Keep
-import com.google.gson.annotations.SerializedName
 
 @Keep
 data class RatesAToL(

@@ -6,11 +6,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import com.example.currencyconverter.Database.CurrencyDatabase
 import com.example.currencyconverter.utils.PreferenceManager
 import com.example.currencyconverter.viewModels.CurrencyViewModel
 import com.example.currencyconverter.viewModels.CurrencyViewModelFactory
 import com.example.currencyconverter.databinding.ActivityMainBinding
-import com.example.tvshowsapplication.Database.CurrencyDatabase
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

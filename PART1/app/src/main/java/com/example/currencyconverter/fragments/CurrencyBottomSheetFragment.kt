@@ -15,7 +15,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class CurrencyBottomSheetFragment(
-    private val mListItems: MutableList<CurrencyItem>,
+    private val mListItems: List<CurrencyItem>,
     private val iClickListenerCode: IClickListenerCode
 ) : BottomSheetDialogFragment(), IClickListenerCode {
 

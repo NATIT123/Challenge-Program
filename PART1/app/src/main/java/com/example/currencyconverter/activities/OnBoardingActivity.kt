@@ -1,4 +1,4 @@
-package com.example.tech_mart_application.activities
+package com.example.currencyconverter.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -12,7 +12,7 @@ import com.example.currencyconverter.models.SliderInfo
 import com.example.currencyconverter.R
 import com.example.currencyconverter.utils.PreferenceManager
 import com.example.currencyconverter.databinding.ActivityOnBoardingBinding
-import com.example.tvshowsapplication.Utils.Constants.Companion.IS_STARTED
+import com.example.currencyconverter.utils.Constants.Companion.IS_STARTED
 
 
 class OnBoardingActivity : AppCompatActivity() {

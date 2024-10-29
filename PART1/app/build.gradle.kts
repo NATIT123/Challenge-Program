@@ -52,8 +52,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
 
 
-
-
     // Architectural Components
     val lifecycle_version = "2.8.6"
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6")
@@ -100,13 +98,13 @@ dependencies {
 
 
     //AndroidSVG
-    implementation ("com.caverock:androidsvg-aar:1.4")
+    implementation("com.caverock:androidsvg-aar:1.4")
 
-    
+
     //Chart
-    implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
     //Kotlin-Reflect
-    implementation ("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
 
 }

@@ -8,7 +8,7 @@ import com.example.currencyconverter.models.CurrencyItem
 import com.example.currencyconverter.databinding.CurrencyItemBinding
 
 class CurrencyAdapter(
-    private val listCurrencyItem: MutableList<CurrencyItem>,
+    private val listCurrencyItem: List<CurrencyItem>,
     private val mOnClickItemListener: IClickListenerCode
 ) :
     RecyclerView.Adapter<CurrencyAdapter.CurrencyViewHolder>() {

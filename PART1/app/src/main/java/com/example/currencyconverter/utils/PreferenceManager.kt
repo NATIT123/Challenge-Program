@@ -2,7 +2,7 @@ package com.example.currencyconverter.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.example.tvshowsapplication.Utils.Constants.Companion.KEY_PREFERENCE_NAME
+import com.example.currencyconverter.utils.Constants.Companion.KEY_PREFERENCE_NAME
 
 
 class PreferenceManager(private val context: Context) {
@@ -24,19 +24,4 @@ class PreferenceManager(private val context: Context) {
         return sharedPreferences.getBoolean(key, false)
     }
 
-    fun putString(key: String, value: String) {
-        editor.putString(key, value)
-        editor.apply()
-    }
-
-    fun getString(key: String): String? {
-        return sharedPreferences.getString(key, null)
-    }
-
-
-
-    fun clear() {
-        editor.clear()
-        editor.apply()
-    }
 }

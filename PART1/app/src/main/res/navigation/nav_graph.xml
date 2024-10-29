@@ -32,7 +32,7 @@
         android:label="ArticleFragment" >
         <argument
             android:name="article"
-            app:argType="com.example.newsapplication.Models.Article" />
+            app:argType="com.example.currencyconverter.models.Article" />
     </fragment>
 
 </navigation>

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,7 +17,7 @@ import com.example.currencyconverter.MainActivity
 import com.example.currencyconverter.R
 import com.example.currencyconverter.viewModels.CurrencyViewModel
 import com.example.currencyconverter.databinding.FragmentNewsBinding
-import com.example.newsapplication.Models.Article
+import com.example.currencyconverter.models.Article
 import com.example.newsapplication.adapters.PaginationScrollListener
 
 
@@ -50,6 +51,7 @@ class NewsFragment : Fragment(), NewsAdapter.onClickItem {
 
         currencyViewModel.getBreakingNewsApi(currentPage)
         observerNews()
+        observerErrorsNews()
 
         binding.rcvFragmentBreaking.addOnScrollListener(object :
             PaginationScrollListener(linearLayoutManager) {
@@ -105,10 +107,12 @@ class NewsFragment : Fragment(), NewsAdapter.onClickItem {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun observerNews() {
+        binding.isLoadingArticle = true
         currencyViewModel.observerBreakingNews().observe(viewLifecycleOwner) { it ->
             this.listArticles.addAll(it)
             mNewsAdapter.differ.submitList(listArticles)
             mNewsAdapter.notifyDataSetChanged()
+            binding.isLoadingArticle = false
         }
     }
 
@@ -119,5 +123,15 @@ class NewsFragment : Fragment(), NewsAdapter.onClickItem {
             putSerializable("article", news)
         }
         findNavController().navigate(R.id.action_newsFragment_to_articleFragment, bundle)
+    }
+
+    private fun observerErrorsNews() {
+        currencyViewModel.observerErrorHandleNews().observe(viewLifecycleOwner) { data ->
+            if (data != null) {
+                binding.isLoadingArticle = true
+                Toast.makeText(requireContext(), data.message, Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
     }
 }

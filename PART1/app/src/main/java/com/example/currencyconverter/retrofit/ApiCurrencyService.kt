@@ -1,10 +1,10 @@
-package com.example.tvshowsapplication.Retrofit
+package com.example.currencyconverter.retrofit
 
 import com.example.currencyconverter.models.LatestRatesAToLResponse
 import com.example.currencyconverter.models.LatestRatesMToZResponse
 import com.example.currencyconverter.models.SymbolResponse
-import com.example.tvshowsapplication.Utils.Constants.Companion.API_KEY_CURRENCY
-import com.example.tvshowsapplication.Utils.Constants.Companion.BASE_URL_CURRENCY
+import com.example.currencyconverter.utils.Constants.Companion.API_KEY_CURRENCY
+import com.example.currencyconverter.utils.Constants.Companion.BASE_URL_CURRENCY
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient

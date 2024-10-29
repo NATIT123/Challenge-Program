@@ -1,6 +1,5 @@
 package com.example.currencyconverter.fragments
 
-import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,7 +15,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class CurrencyBottomSheetFragment1(
-    private val mListItems: MutableList<CurrencyItem>,
+    private val mListItems: List<CurrencyItem>,
     private val iClickListenerCode1: IClickListenerCode1
 ) : BottomSheetDialogFragment(), IClickListenerCode {
 
