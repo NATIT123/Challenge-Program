@@ -1,5 +1,6 @@
 package com.example.currencyconverter.fragments
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -42,5 +43,7 @@ class CurrencyBottomSheetFragment1(
     override fun onClickItem(position: Int) {
         iClickListenerCode1.onClickItem1(position)
     }
+
+
 
 }

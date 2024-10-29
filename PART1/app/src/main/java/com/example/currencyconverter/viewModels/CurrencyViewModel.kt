@@ -1,12 +1,13 @@
 package com.example.currencyconverter.viewModels
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.currencyconverter.models.LatestRatesResponse
-import com.example.currencyconverter.models.Rates
+import com.example.currencyconverter.models.LatestRatesAToLResponse
+import com.example.currencyconverter.models.LatestRatesMToZResponse
+import com.example.currencyconverter.models.RatesAToL
+import com.example.currencyconverter.models.RatesMToZ
 import com.example.currencyconverter.models.SaveCurrency
 import com.example.currencyconverter.models.SymbolResponse
 import com.example.currencyconverter.models.SymbolsName
@@ -26,26 +27,49 @@ class CurrencyViewModel(private val currencyDatabase: CurrencyDatabase) : ViewMo
     private var currencyLiveData = MutableLiveData<SymbolsName>()
     private var currencySaveLiveData = currencyDatabase.currencyDao().getListCurrency()
     private var articlesLiveData = MutableLiveData<List<Article>>()
-    private var latestRatesLiveData = MutableLiveData<Rates>()
+    private var latestRatesAToLLiveData = MutableLiveData<RatesAToL>()
+    private var latestRatesMToZLiveData = MutableLiveData<RatesMToZ>()
 
 
-    fun getLatestRates() {
-        ApiCurrencyService.apiCurrencyService.getLatestRatesCurrency()
-            .enqueue(object : Callback<LatestRatesResponse> {
+    fun getLatestRatesAToL() {
+        ApiCurrencyService.apiCurrencyService.getLatestRatesAToLCurrency()
+            .enqueue(object : Callback<LatestRatesAToLResponse> {
                 override fun onResponse(
-                    call: Call<LatestRatesResponse>,
-                    response: Response<LatestRatesResponse>
+                    call: Call<LatestRatesAToLResponse>,
+                    response: Response<LatestRatesAToLResponse>
                 ) {
                     if (response.isSuccessful) {
                         val body = response.body()
                         if (body != null) {
-                            latestRatesLiveData.value = body.rates
+                            latestRatesAToLLiveData.value = body.rates
                         }
                     }
                 }
 
-                override fun onFailure(p0: Call<LatestRatesResponse>, p1: Throwable) {
+                override fun onFailure(p0: Call<LatestRatesAToLResponse>, p1: Throwable) {
 
+                }
+
+            })
+    }
+
+    fun getLatestRatesMToZ() {
+        ApiCurrencyService.apiCurrencyService.getLatestRatesMToZCurrency()
+            .enqueue(object : Callback<LatestRatesMToZResponse> {
+                override fun onFailure(call: Call<LatestRatesMToZResponse>, p1: Throwable) {
+
+                }
+
+                override fun onResponse(
+                    call: Call<LatestRatesMToZResponse>,
+                    response: Response<LatestRatesMToZResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val body = response.body()
+                        if (body != null) {
+                            latestRatesMToZLiveData.value = body.rates
+                        }
+                    }
                 }
 
             })
@@ -121,8 +145,12 @@ class CurrencyViewModel(private val currencyDatabase: CurrencyDatabase) : ViewMo
         return currencyLiveData
     }
 
-    fun observerLatestRates(): MutableLiveData<Rates> {
-        return latestRatesLiveData
+    fun observerLatestRatesAToL(): MutableLiveData<RatesAToL> {
+        return latestRatesAToLLiveData
+    }
+
+    fun observerLatestRatesMToZ(): MutableLiveData<RatesMToZ> {
+        return latestRatesMToZLiveData
     }
 
     fun observerCurrencySaved(): LiveData<List<SaveCurrency>> {

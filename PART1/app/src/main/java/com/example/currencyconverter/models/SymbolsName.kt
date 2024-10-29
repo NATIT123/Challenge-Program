@@ -1,5 +1,8 @@
 package com.example.currencyconverter.models
 
+import androidx.annotation.Keep
+
+
 data class SymbolsName(
     val AED: String,
     val AFN: String,

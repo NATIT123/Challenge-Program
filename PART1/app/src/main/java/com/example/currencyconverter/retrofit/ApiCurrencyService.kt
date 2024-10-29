@@ -1,6 +1,7 @@
 package com.example.tvshowsapplication.Retrofit
 
-import com.example.currencyconverter.models.LatestRatesResponse
+import com.example.currencyconverter.models.LatestRatesAToLResponse
+import com.example.currencyconverter.models.LatestRatesMToZResponse
 import com.example.currencyconverter.models.SymbolResponse
 import com.example.tvshowsapplication.Utils.Constants.Companion.API_KEY_CURRENCY
 import com.example.tvshowsapplication.Utils.Constants.Companion.BASE_URL_CURRENCY
@@ -32,9 +33,14 @@ interface ApiCurrencyService {
 
 
     @GET("latest")
-    fun getLatestRatesCurrency(
+    fun getLatestRatesAToLCurrency(
         @Query("access_key") apiKey: String = API_KEY_CURRENCY
-    ): Call<LatestRatesResponse>
+    ): Call<LatestRatesAToLResponse>
+
+    @GET("latest")
+    fun getLatestRatesMToZCurrency(
+        @Query("access_key") apiKey: String = API_KEY_CURRENCY
+    ): Call<LatestRatesMToZResponse>
 
     @GET("symbols")
     fun getSymbols(@Query("access_key") apiKey: String = API_KEY_CURRENCY): Call<SymbolResponse>

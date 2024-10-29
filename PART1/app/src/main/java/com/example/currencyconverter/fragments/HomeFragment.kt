@@ -19,11 +19,12 @@ import com.example.currencyconverter.interfaces.IClickListenerCode1
 import com.example.currencyconverter.interfaces.IClickListenerNumber
 import com.example.currencyconverter.MainActivity
 import com.example.currencyconverter.models.CurrencyItem
-import com.example.currencyconverter.models.Rates
 import com.example.currencyconverter.models.SymbolsName
 import com.example.currencyconverter.R
 import com.example.currencyconverter.viewModels.CurrencyViewModel
 import com.example.currencyconverter.databinding.FragmentHomeBinding
+import com.example.currencyconverter.models.RatesAToL
+import com.example.currencyconverter.models.RatesMToZ
 import java.text.DecimalFormat
 import kotlin.reflect.full.memberProperties
 
@@ -31,7 +32,7 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
 
 
     private lateinit var binding: FragmentHomeBinding
-    private val listCurrency = mutableListOf<CurrencyItem>()
+    private var listCurrency = mutableListOf<CurrencyItem>()
     private lateinit var symbolsName: SymbolsName
     private lateinit var currencyBottomSheetFragment: CurrencyBottomSheetFragment
     private lateinit var currencyBottomSheetFragment1: CurrencyBottomSheetFragment1
@@ -39,7 +40,8 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
     private val listNumber = mutableListOf<String>()
     private val symbolsMap = mutableMapOf<String, String>()
     private var listCurrencyTemp = mutableListOf<CurrencyItem>()
-    private lateinit var ratesAmount: Rates
+    private lateinit var ratesAToL: RatesAToL
+    private lateinit var ratesMToZ: RatesMToZ
     private val ratesMap = mutableMapOf<String, Double>()
 
 
@@ -93,8 +95,12 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
         observerSymbols()
 
 
-        currencyViewModel.getLatestRates()
-        observerLatestCurrency()
+        currencyViewModel.getLatestRatesAToL()
+        observerLatestRatesAToL()
+
+
+        currencyViewModel.getLatestRatesMToZ()
+        observerLatestRatesMToZ()
 
 
 
@@ -120,7 +126,7 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
 
         for (name in listCode) {
 
-            listCurrency.add(CurrencyItem(name = name))
+            listCurrency.add(CurrencyItem(name = name, 0))
         }
         binding.tvCode.text = listCurrency[0].name
         binding.tvBase.text = symbolsMap[listCurrency[0].name] ?: "Empty"
@@ -132,7 +138,10 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
     private fun clickOpenBottomSheetFragment() {
         listCurrencyTemp = mutableListOf()
         listCurrencyTemp = listCurrency
-        currencyBottomSheetFragment = CurrencyBottomSheetFragment(listCurrencyTemp, this)
+        val tvCode = binding.tvCode1.text.toString()
+        currencyBottomSheetFragment =
+            CurrencyBottomSheetFragment(listCurrencyTemp.filter { it.name != tvCode } as MutableList<CurrencyItem>,
+                this)
         currencyBottomSheetFragment.show(parentFragmentManager, currencyBottomSheetFragment.tag)
 
     }
@@ -140,7 +149,10 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
     private fun clickOpenBottomSheetFragment1() {
         listCurrencyTemp = mutableListOf()
         listCurrencyTemp = listCurrency
-        currencyBottomSheetFragment1 = CurrencyBottomSheetFragment1(listCurrencyTemp, this)
+        val tvCode = binding.tvCode.text.toString()
+        currencyBottomSheetFragment1 =
+            CurrencyBottomSheetFragment1(listCurrencyTemp.filter { it.name != tvCode } as MutableList<CurrencyItem>,
+                this)
         currencyBottomSheetFragment1.show(parentFragmentManager, currencyBottomSheetFragment1.tag)
 
     }
@@ -151,6 +163,7 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
         binding.tvCode.text = name
         binding.tvBase.text = symbolsMap[name] ?: "Empty"
         currencyBottomSheetFragment.dismiss()
+        covertRates()
     }
 
 
@@ -215,12 +228,22 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
 
     }
 
+    @SuppressLint("SetTextI18n")
     private fun covertRates() {
         val code = binding.tvCode.text.toString()
         val code1 = binding.tvCode1.text.toString()
-        val amount = binding.tvBaseAmount.text.toString()
-        val result = (ratesMap[code] ?: (0.0 / (ratesMap[code1] ?: 0.0))) * amount.toDouble()
-        binding.tvBaseAmount1.text = result.toString()
+        var amount = binding.tvBaseAmount.text.toString()
+        if (amount !== "0.0") {
+            amount = amount.replace(".", "").replace(",", ".")
+            val result =
+                (1 / ratesMap[code]!!) / (1 / ratesMap[code1]!!) * amount.toDouble()
+            val formatter = DecimalFormat("#,###.##")
+            var formattedString = formatter.format(result).replace(",", ".")
+            if (formattedString == "0") {
+                formattedString = "%.6f".format(result).replace(",", ".")
+            }
+            binding.tvBaseAmount1.text = formattedString
+        }
     }
 
 
@@ -234,12 +257,20 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
         }
     }
 
-    private fun observerLatestCurrency() {
-        currencyViewModel.observerLatestRates().observe(viewLifecycleOwner) { data ->
-            ratesAmount = data
-            Log.d("MyApp", data.toString())
-            for (prop in Rates::class.memberProperties) {
-                ratesMap[prop.name] = prop.get(ratesAmount).toString().toDouble()
+    private fun observerLatestRatesAToL() {
+        currencyViewModel.observerLatestRatesAToL().observe(viewLifecycleOwner) { data ->
+            ratesAToL = data
+            for (prop in RatesAToL::class.memberProperties) {
+                ratesMap[prop.name] = prop.get(ratesAToL).toString().toDouble()
+            }
+        }
+    }
+
+    private fun observerLatestRatesMToZ() {
+        currencyViewModel.observerLatestRatesMToZ().observe(viewLifecycleOwner) { data ->
+            ratesMToZ = data
+            for (prop in RatesMToZ::class.memberProperties) {
+                ratesMap[prop.name] = prop.get(ratesMToZ).toString().toDouble()
             }
         }
     }
@@ -274,20 +305,18 @@ class HomeFragment : Fragment(), IClickListenerCode, IClickListenerNumber, IClic
 
         val tvCode = binding.tvCode.text.toString()
         val tvBase = binding.tvBase.text.toString()
-        val tvBaseAmount = binding.tvBaseAmount.text.toString()
         val tvCode1 = binding.tvCode1.text.toString()
         val tvBase1 = binding.tvBase1.text.toString()
-        val tvBaseAmount1 = binding.tvBaseAmount1.text.toString()
 
         ///BASE
         binding.tvCode.text = tvCode1
         binding.tvBase.text = tvBase1
-        binding.tvBaseAmount.text = tvBaseAmount1
 
         ///Base1
         binding.tvCode1.text = tvCode
         binding.tvBase1.text = tvBase
-        binding.tvBaseAmount1.text = tvBaseAmount
+
+        covertRates()
 
     }
 
