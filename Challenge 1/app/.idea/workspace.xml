@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="188f81d1-605a-4bd3-9a1c-e99aec936950" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/.idea/appInsightsSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/.idea/deploymentTargetSelector.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/.idea/material_theme_project_new.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/.idea/migrations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/androidTest/java/com/example/currencyconverter/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/assets/bookmark.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/assets/chart.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/assets/home.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/assets/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/assets/news.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/assets/search.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/activities/OnBoardingActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/activities/SplashScreenActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/adapters/CurrencyAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/adapters/CurrencyAdapter1.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/adapters/NewsAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/adapters/NumberAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/adapters/PaginationScrollListener.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/adapters/SliderLayout.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/database/CurrencyDAO.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/database/CurrencyDatabase.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/fragments/ArticleFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/fragments/ChartFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/fragments/CurrencyBottomSheetFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/fragments/CurrencyBottomSheetFragment1.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/fragments/HomeFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/fragments/NewsFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/interfaces/IClickListenerCode.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/interfaces/IClickListenerCode1.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/interfaces/IClickListenerNumber.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/models/Article.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/models/CurrencyItem.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/models/ErrorHandle.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/models/LatestRatesAToLResponse.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/models/LatestRatesMToZResponse.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/models/NewsResponse.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/models/RatesAToL.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/models/RatesMToZ.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/models/SaveCurrency.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/models/SliderInfo.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/models/Source.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/models/SymbolResponse.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/models/SymbolsName.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/retrofit/ApiCurrencyService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/retrofit/ApiNewsService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/utils/Constants.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/utils/PreferenceManager.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/viewModels/CurrencyViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/java/com/example/currencyconverter/viewModels/CurrencyViewModelFactory.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/color/custom_color_nav.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/backgound_number_delete.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/background_bottom_nav.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/background_change.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/background_currency.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/background_logo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/background_number.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/baseline_arrow_drop_down_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/baseline_change_circle_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/baseline_currency_exchange_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/baseline_favorite_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/baseline_manage_search_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/baseline_newspaper_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/baseline_stacked_bar_chart_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/ellipse1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/ellipse2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/layout/activity_on_boarding.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/layout/activity_splash_screen.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/layout/currency_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/layout/fragment_article.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/layout/fragment_chart.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/layout/fragment_home.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/layout/fragment_news.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/layout/item_article_preview.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/layout/layout_bottom_sheet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/layout/number_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/layout/slider_layout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/menu/bottom_nav.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/navigation/nav_graph.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/values/arrays.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/app/src/test/java/com/example/currencyconverter/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART1/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART2/Q2.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART2/Q2.2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PART2/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "NATIT123"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/NATIT123/Challenge-Program.git",
+    "accountId": "15ad3c94-942b-4b0f-9551-d155629d97e2"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2o7dmnGnXTVgvyt4AOZu4u6n666" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "android.gradle.sync.needed": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Course/Intern/Challenge-Program/Challenge 1/app",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="188f81d1-605a-4bd3-9a1c-e99aec936950" name="Changes" comment="" />
+      <created>1730224710265</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730224710265</updated>
+    </task>
+    <servers />
+  </component>
+</project>
