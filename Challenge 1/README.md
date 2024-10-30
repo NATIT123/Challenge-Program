@@ -1,4 +1,4 @@
-# Food Application
+# Currency Convert Plus Application
 
 ## Introduction
 
